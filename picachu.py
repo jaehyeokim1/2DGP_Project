@@ -72,20 +72,21 @@ def process_events(player):
 
 def main():
     open_canvas(800, 600)
+    background = load_image('map.png')  # 맵 배경 이미지 로드
     player = Character()
     is_running = True
 
     while is_running:
         is_running = process_events(player)
         player.update()
-        render_scene([player])
-
+        render_scene([player], background)
         delay(0.05)
 
     close_canvas()
 
-def render_scene(objects):
+def render_scene(objects, background):
     clear_canvas()
+    background.draw(400, 300)  # 배경을 화면 중앙에 그리기
     for obj in objects:
         obj.draw()
     update_canvas()
