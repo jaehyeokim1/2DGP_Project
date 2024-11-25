@@ -8,6 +8,7 @@ from Ball import Ball
 from Map import NetBottom
 from Map import NetTop
 from point import Point
+from Map import Cloud
 
 import title_mode
 
@@ -85,10 +86,10 @@ net = None
 running = None
 netTop = None
 point = None
-
+cloud = None
 # 초기화
 def enter():
-    global pikachu, pikachu2, back, running, ball, net, netTop, point
+    global pikachu, pikachu2, back,cloud, running, ball, net, netTop, point
     pikachu = pikachu_l()
     pikachu.z = 1  # 기본값을 초기화
     pikachu2 = pikachu_r()
@@ -97,7 +98,9 @@ def enter():
     net = NetBottom()
     netTop = NetTop()
     point = Point()
-
+    for i in range(7):
+        cloud = Cloud()
+        game_world.add_object(cloud, 7)
     game_world.add_object(back, 0)
     game_world.add_object(pikachu, 1)
     game_world.add_object(ball, 3)
@@ -105,13 +108,14 @@ def enter():
     game_world.add_object(net, 4)
     game_world.add_object(netTop, 5)
     game_world.add_object(point, 6)
+    game_world.add_object(cloud, 7)
 # 종료
 def exit():
     global pikachu, pikachu2, back, ball, net, netTop, point
     del pikachu, pikachu2, back, ball, net, netTop, point
     game_world.clear()
 def update():
-    # pikachu.
+
     for game_object in game_world.all_objects():
         game_object.update()
 
@@ -131,11 +135,3 @@ def pause():
 def resume():
     pass
 
-# def test_self():
-#     import play_state
-#     pico2d.open_canvas()
-#     game_framework.run(play_state)
-#     pico2d.clear_canvas()
-#
-# if __name__ == '__main__':
-#     test_self()

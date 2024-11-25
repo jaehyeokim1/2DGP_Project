@@ -2,6 +2,7 @@ from pico2d import *
 import game_framework
 import title_mode
 import Ball
+import random
 class map:
     def __init__(self):
         self.image = load_image('map.png')
@@ -36,3 +37,22 @@ class NetTop:
         pass
     def get_bb(self):
         return self.pos_x - 18, self.pos_y - 15, self.pos_x + 18, self.pos_y + 15
+
+class Cloud:
+    def __init__(self):
+        self.x,self.y = random.randint(100,750), random.randint(300,500)
+        self.frame = random.randint(1,5)
+        self.speed = random.randint(1,1)
+        self.img = load_image('cloud.png')
+        self.dir = 1
+
+    def update(self):
+        self.frame = (self.frame + 1) % 1
+        self.x += self.speed * self.dir
+        if self.x >= 750:
+            self.dir = -1
+        if self.x <= 50:
+            self.dir = 1
+
+    def draw(self):
+        self.img.draw(self.x,self.y,50,50)
