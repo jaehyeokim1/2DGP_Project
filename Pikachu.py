@@ -2,7 +2,7 @@ from pico2d import load_image, load_font, delay
 import Collision
 import play_mode
 import game_framework
-
+import end_mode
 class pikachu_l:
     def __init__(self):
         self.pos_x = 150
@@ -81,6 +81,8 @@ class pikachu_l:
         elif self.lose:
             self.img.clip_draw(256, self.locate * 64, 64, 64, self.pos_x, self.pos_y, 100, 100)
             delay(0.05)
+        if self.finish == 50:
+            game_framework.change_mode(end_mode)
 
     def get_bb(self):
         return self.pos_x - 10, self.pos_y - 30, self.pos_x + 40, self.pos_y + 40

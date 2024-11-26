@@ -40,7 +40,7 @@ class NetTop:
 
 class Cloud:
     def __init__(self):
-        self.x,self.y = random.randint(100,750), random.randint(300,500)
+        self.x,self.y = random.randint(100,750), random.randint(450,500)
         self.frame = random.randint(1,5)
         self.speed = random.randint(1,1)
         self.img = load_image('cloud.png')
