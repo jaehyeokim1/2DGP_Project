@@ -46,7 +46,10 @@ class pikachu_l:
                 self.jump = 0
         else:
             self.pos_y = 70
-
+        if self.pos_x <= 40:
+            self.pos_x = 40
+        elif self.pos_x >= 350:
+            self.pos_x = 350
     def check_collision_with_net(self):
         if Collision.collide(play_mode.pikachu, play_mode.net):
             self.pos_x = 350  # or any appropriate behavior

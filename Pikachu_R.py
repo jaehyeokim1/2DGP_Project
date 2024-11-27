@@ -9,7 +9,7 @@ class pikachu_r:
         self.pos_y = 70
         self.frame = 0
         self.frame2 = 5
-        self.img = load_image('Pikachu'+'_R'+'.png')
+        self.img = load_image('Pikachu_R.png')
         self.dirx = 0
         self.diry = 0
         self.jump = 0
@@ -50,7 +50,10 @@ class pikachu_r:
             self.locate = 1
             self.frame2 = 5
             self.sec = 0
-
+        if self.pos_x >= 750:
+            self.pos_x = 750
+        elif self.pos_x <= 440:
+            self.pos_x = 440
     def draw(self):
         if self.lose == False and self.win == False:
             if self.locate:

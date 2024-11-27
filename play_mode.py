@@ -108,7 +108,7 @@ def enter():
     game_world.add_object(net, 4)
     game_world.add_object(netTop, 5)
     game_world.add_object(point, 6)
-    game_world.add_object(cloud, 7)
+
 # 종료
 def exit():
     global pikachu, pikachu2, back, ball, net, netTop, point
