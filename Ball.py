@@ -2,7 +2,7 @@ import Collision
 from pico2d import *
 import play_mode
 import game_world
-import select
+
 class Ball:
     def __init__(self):
        self.image = load_image('ball.png')
@@ -12,6 +12,8 @@ class Ball:
        self.tx = 0
        self.ty = 6
        self.speed_y = 6
+       self.touch = load_wav('touch.wav')
+       self.spike = load_wav('spike.wav')
 
     def get_bb(self):
         return self.x - 25, self.y - 25, self.x + 25, self.y + 25
@@ -27,6 +29,8 @@ class Ball:
                     self.speed_y = 20
                     self.tx = 5
                     self.ty = self.speed_y
+                    self.touch.play(1)
+                    self.touch.set_volume(40)
 
                     if(play_mode.pikachu.jump == 1):
                         self.speed_y = 30
@@ -36,10 +40,14 @@ class Ball:
                             self.speed_y = 40
                             self.tx = 40
                             self.ty = self.speed_y
+                            self.spike.play(1)
+                            self.spike.set_volume(60)
             if (Collision.collide(self, play_mode.pikachu2)):
                     self.speed_y = 20
                     self.tx = -5
                     self.ty = self.speed_y
+                    self.touch.play(1)
+                    self.touch.set_volume(40)
 
                     if(play_mode.pikachu2.jump == 1):
                         self.speed_y = 30
@@ -49,6 +57,8 @@ class Ball:
                             self.speed_y = 40
                             self.tx = -40
                             self.ty = self.speed_y
+                            self.spike.play(1)
+                            self.spike.set_volume(60)
 
         if (Collision.collide(self, play_mode.netTop)):
             self.tx = -self.tx

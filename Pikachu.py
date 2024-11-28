@@ -55,9 +55,9 @@ class pikachu_l:
             self.pos_x = 350  # or any appropriate behavior
 
     def check_game_status(self):
-        if play_mode.point.l_point == 2:
+        if play_mode.point.l_point == 4:
             self.set_game_result(win=True)
-        elif play_mode.point.r_point == 2:
+        elif play_mode.point.r_point == 4:
             self.set_game_result(win=False)
 
     def set_game_result(self, win):

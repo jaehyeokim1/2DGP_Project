@@ -6,7 +6,9 @@ import random
 class map:
     def __init__(self):
         self.image = load_image('map.png')
-
+        self.bgm = load_music('bgm.mp3')
+        self.bgm.set_volume(32)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.draw(400, 300)
