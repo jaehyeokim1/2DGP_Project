@@ -38,12 +38,14 @@ class pikachu_l:
         self.pos_x += self.dirx * 5
         if self.jump == 1:
             self.pos_y += 15
+
             if self.pos_y >= 400:
                 self.jump = -1
         elif self.jump == -1:
             self.pos_y -= 15
             if self.pos_y <= 70:
                 self.jump = 0
+
         else:
             self.pos_y = 70
         if self.pos_x <= 40:

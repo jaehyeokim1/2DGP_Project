@@ -31,15 +31,12 @@ def handle_events():
                     pikachu.dirx = 10
                     pikachu.locate = 2
                     pikachu.frame2 = 3
+                    
                 elif event.key == SDLK_w:
                     if pikachu.jump == 0:
                         pikachu.jump = 1
                         pikachu.locate = 4
-                elif event.key == SDLK_q:
-                    if pikachu.time >= 10:
-                        pikachu.jump = 1
-                        pikachu.locate = 6
-                        pikachu.time = 0
+
                 elif event.key == SDLK_LEFT:
                     pikachu2.dirx = -1
                     pikachu2.locate = 5
@@ -54,11 +51,7 @@ def handle_events():
                     if pikachu2.jump == 0:
                         pikachu2.jump = 1
                         pikachu2.locate = 4
-                elif event.key == SDLK_p:
-                    if pikachu2.time >= 10:
-                        pikachu2.jump = 1
-                        pikachu2.locate = 6
-                        pikachu2.time = 0
+
         elif event.type == SDL_KEYUP:
             if event.key == SDLK_d or event.key == SDLK_a or event.key == SDLK_s:
                 pikachu.dirx = 0
@@ -66,12 +59,10 @@ def handle_events():
             if event.key == SDLK_RIGHT or event.key == SDLK_LEFT or event.key == SDLK_DOWN:
                 pikachu2.dirx = 0
                 pikachu2.locate = 0
-            elif event.key == SDLK_w or event.key == SDLK_UP or event.key == SDLK_p:
+            elif event.key == SDLK_w or event.key == SDLK_UP:
                 pikachu.locate = 0
                 pikachu2.locate = 0
-            elif event.key == SDLK_q:
-                pikachu.locate = 0
-                pikachu2.locate = 0
+
 
         if event.type == SDL_QUIT:
             game_framework.quit()
