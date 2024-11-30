@@ -8,8 +8,8 @@ class Point:
         self.r_point = 0
 
     def draw(self):
-        self.font.draw(200, 550, str(self.l_point), (255, 0, 0))
-        self.font.draw(600, 550, str(self.r_point), (255, 0, 0))
+        self.font.draw(100, 550, str(self.l_point), (255, 0, 0))
+        self.font.draw(650, 550, str(self.r_point), (255, 0, 0))
 
     def handle_point(self, is_left):
         if is_left:

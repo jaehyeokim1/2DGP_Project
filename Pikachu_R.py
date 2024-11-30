@@ -18,14 +18,11 @@ class pikachu_r:
         self.lose = False
         self.q_jump = 0
         self.font = load_font('ENCR10B.TTF', 25)
-        self.sec = 0
+
 
     def update(self):
         self.frame = (self.frame + 1) % self.frame2
-        if self.sec < 10:
-            self.sec += 0.03
-        else:
-            self.sec = 10
+
         if self.lose == False and self.win == False:
             self.pos_x += self.dirx * 5
             if self.jump == 1:
@@ -44,7 +41,7 @@ class pikachu_r:
             self.lose = True
             self.locate = 0
             self.frame2 = 5
-            self.sec = 0
+
         elif (play_mode.point.r_point == 4):
             self.win = True
             self.locate = 1
@@ -66,6 +63,6 @@ class pikachu_r:
         elif self.lose == True:
             self.img.clip_draw(256, self.locate * 64, 64, 64, self.pos_x, self.pos_y, 100, 100)
             delay(0.05)
-        self.font.draw(self.pos_x - 10, self.pos_y + 60, str(int(self.sec)), (255, 0, 255))
+
     def get_bb(self):
         return self.pos_x - 40, self.pos_y - 30, self.pos_x + 10, self.pos_y + 40

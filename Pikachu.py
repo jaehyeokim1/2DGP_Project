@@ -17,7 +17,7 @@ class pikachu_l:
         self.win = False
         self.lose = False
         self.finish = 0
-        self.font = load_font('ENCR10B.TTF', 25)
+        self.font = load_font('ENCR10B.TTF', 50)
 
     def update(self):
         self.frame = (self.frame + 1) % self.frame2
@@ -29,7 +29,7 @@ class pikachu_l:
         self.check_game_status()
 
     def update_time(self):
-        if self.sec < 10:
+        if self.sec < 30:
             self.sec += 0.03
         else:
             self.sec = 10
@@ -72,7 +72,7 @@ class pikachu_l:
 
     def draw(self):
         self.draw_pikachu()
-        self.font.draw(self.pos_x, self.pos_y + 60, str(int(self.sec)), (255, 0, 255))
+        self.font.draw(400,550, str(int(self.sec)), (500, 500, 500))
 
     def draw_pikachu(self):
         if not self.win and not self.lose:
