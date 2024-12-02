@@ -37,12 +37,12 @@ class pikachu_r:
                 self.pos_y = 70
             if (Collision.collide(play_mode.pikachu2, play_mode.net)):
                 play_mode.pikachu2.x = 450
-        if (play_mode.point.l_point == 4):
+        if (play_mode.point.l_point == 2):
             self.lose = True
             self.locate = 0
             self.frame2 = 5
 
-        elif (play_mode.point.r_point == 4):
+        elif (play_mode.point.r_point == 2):
             self.win = True
             self.locate = 1
             self.frame2 = 5
