@@ -1,9 +1,10 @@
-
+from pico2d import *
 import game_framework
 import title_mode
+
 def enter():
     global img2
-    img2 = load_image('End.png')
+    img2 = load_image('End.png')  # 필요하면 경로 수정
 
 def exit():
     global img2
@@ -21,6 +22,8 @@ def handle_events():
 
 def draw():
     clear_canvas()
-    img2.draw(400,300)
+    img2.draw(400, 300)
     update_canvas()
 
+def update():
+    pass  # 현재는 아무 동작을 하지 않음
